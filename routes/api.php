@@ -20,7 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/test', function () {
     return "test";
-});
+})->middleware('age');
 
 Route::post('/test', function (Request $request) {
     return $request->all();
