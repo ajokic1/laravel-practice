@@ -20,6 +20,7 @@ class LogRequest
         $method = $request->method();
         $path = $request->path();
         Log::debug("$method request to $path");
+        Log::debug($request);
         return $next($request);
     }
 }
