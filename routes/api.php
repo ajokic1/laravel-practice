@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ResourceController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -27,3 +28,5 @@ Route::patch('/test/{id}', [HomeController::class, 'update']);
 Route::delete('/test/{id}', [HomeController::class, 'delete']);
 
 Route::resource('/resource', ResourceController::class);
+
+Route::resource('/posts', PostController::class);
