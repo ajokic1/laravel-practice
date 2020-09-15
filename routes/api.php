@@ -20,10 +20,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/test', [HomeController::class, 'index'])->middleware('age');
-Route::post('/test', [HomeController::class, 'store']);
-Route::put('/test/{id}', [HomeController::class, 'update']);
-Route::patch('/test/{id}', [HomeController::class, 'update']);
-Route::delete('/test/{id}', [HomeController::class, 'delete']);
+Route::get('/test', [HomeController::class, 'index'])
+    ->name('test.index')
+    ->middleware('age');
+Route::post('/test', [HomeController::class, 'store'])
+    ->name('test.store');
+Route::match(['put', 'patch'], '/test/{id}', [HomeController::class, 'update'])
+    ->name('test.update');
+Route::delete('/test/{id}', [HomeController::class, 'destroy'])
+    ->name('test/delete');
 
 Route::resource('/resource', ResourceController::class);
