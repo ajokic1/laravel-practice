@@ -17,3 +17,28 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/test', function ()
+{
+    return "test";
+});
+
+Route::post('/test', function (Request $request)
+{
+    return $request->all();
+});
+
+Route::put('/test/{id}', function (Request $request, $id)
+{
+    return "Updated id $id with data:" . json_encode($request->all());
+});
+
+Route::patch('/test/{id}', function (Request $request, $id)
+{
+    return "Updated id $id with data:" . json_encode($request->all());
+});
+
+Route::delete('/test/{id}', function ($id)
+{
+    return "Deleted $id";
+});
