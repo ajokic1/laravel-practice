@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\ResourceController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,22 +21,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/test', function () {
-    return "test";
-})->middleware('age');
+Route::get('/test', [HomeController::class, 'index'])->middleware('age');
+Route::post('/test', [HomeController::class, 'store']);
+Route::put('/test/{id}', [HomeController::class, 'update']);
+Route::patch('/test/{id}', [HomeController::class, 'update']);
+Route::delete('/test/{id}', [HomeController::class, 'delete']);
 
-Route::post('/test', function (Request $request) {
-    return $request->all();
-});
+Route::resource('/resource', ResourceController::class);
 
-Route::put('/test/{id}', function (Request $request, $id) {
-    return "Updated id $id with data:" . json_encode($request->all());
-});
-
-Route::patch('/test/{id}', function (Request $request, $id) {
-    return "Updated id $id with data:" . json_encode($request->all());
-});
-
-Route::delete('/test/{id}', function ($id) {
-    return "Deleted $id";
-});
+Route::resource('/posts', PostController::class);
