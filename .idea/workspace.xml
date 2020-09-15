@@ -31,9 +31,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="be292ca0-6eea-483e-aec1-db6f5344633b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/hello.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,7 +191,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1600156815184</updated>
-      <workItem from="1600156816321" duration="3200000" />
+      <workItem from="1600156816321" duration="3998000" />
     </task>
     <servers />
   </component>
@@ -208,5 +208,11 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="-162" y="-610" key="NewPhpFileDialog" timestamp="1600160793204">
+      <screen x="-533" y="-1080" width="1920" height="1080" />
+    </state>
+    <state x="-162" y="-610" key="NewPhpFileDialog/0.0.1280.800/-533.-1080.1920.1080@-533.-1080.1920.1080" timestamp="1600160793204" />
   </component>
 </project>
