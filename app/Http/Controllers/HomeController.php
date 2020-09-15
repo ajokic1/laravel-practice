@@ -21,7 +21,7 @@ class HomeController extends Controller
         return "Updated id $id with data:" . json_encode($request->all());
     }
 
-    public function delete($id)
+    public function destroy($id)
     {
         return "Deleted $id";
     }
