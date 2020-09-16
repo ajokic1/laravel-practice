@@ -18,5 +18,8 @@ class DatabaseSeeder extends Seeder
         User::factory(10)->create()->each(function($user) {
             Post::factory(5)->create(['user_id' => $user->id]);
         });
+
+        $this->call(CountriesSeeder::class);
+        $this->command->info('Seeded the countries!');
     }
 }

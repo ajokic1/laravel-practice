@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DataController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ResourceController;
@@ -17,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
@@ -34,3 +36,17 @@ Route::delete('/test/{id}', [HomeController::class, 'destroy'])
 Route::resource('/resource', ResourceController::class);
 
 Route::resource('/posts', PostController::class);
+
+Route::group([
+    'middleware' => 'api',
+    'prefix' => 'auth'
+], function ($router) {
+    Route::post('login', [AuthController::class, 'login']);
+    Route::post('logout', [AuthController::class, 'logout']);
+    Route::post('refresh', [AuthController::class, 'refresh']);
+    Route::post('me', [AuthController::class, 'me']);
+    Route::post('invalidate/{forever?}', [AuthController::class, 'invalidate']);
+});
+
+Route::get('/data/open', [DataController::class, 'open']);
+Route::get('/data/closed', [DataController::class, 'closed'])->middleware('jwt');
