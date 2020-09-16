@@ -13,6 +13,11 @@ use Illuminate\Support\Collection;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Post::class, 'post');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -31,8 +36,9 @@ class PostController extends Controller
      */
     public function store(StorePost $request)
     {
+
         $post = Post::create($request->validated());
-        User::first()->posts()->save($post);
+        $request->user()->posts()->save($post);
         return response()->json([
             'data' => $post
         ], 201);
