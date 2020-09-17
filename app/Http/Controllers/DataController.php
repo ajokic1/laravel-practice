@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exceptions\TestException;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 
@@ -9,6 +10,7 @@ class DataController extends Controller
 {
     public function open()
     {
+        throw new TestException();
         return "this data is open for all users";
     }
 
