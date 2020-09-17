@@ -63,6 +63,11 @@ class User extends Authenticatable implements JWTSubject
         'profile_photo_url',
     ];
 
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
     /**
      * Get the identifier that will be stored in the subject claim of the JWT.
      *

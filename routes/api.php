@@ -49,4 +49,5 @@ Route::group([
 });
 
 Route::get('/data/open', [DataController::class, 'open']);
+Route::get('/data/admin', [DataController::class, 'adminOnly']);
 Route::get('/data/closed', [DataController::class, 'closed'])->middleware('jwt');
